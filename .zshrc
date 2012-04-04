@@ -17,9 +17,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 
-PROMPT="[%T]%% "
-RPROMPT="[%~]"
-
 # historical backward/forward search with linehead string binded to ^P/^N
 #
 autoload history-search-end
@@ -71,5 +68,21 @@ precmd(){
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
 }
-#PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
-PROMPT="%1(v|%F{green}%1v%f|)[%T]%% "
+case "${OSTYPE}" in
+    darwin*)
+        #PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
+        PROMPT="%1(v|%F{green}%1v%f|)[%T]%% "
+        ;;
+    linux*)
+        case "${HOSTNAME}" in
+            *dev*)
+                PROMPT="%1(v|%F{green}%1v%f|)[%T@%F{white}%m%f]%% "
+                ;;
+            *)
+                PROMPT="%1(v|%F{green}%1v%f|)[%T@%F{red}%m%f]%% "
+                ;;
+        esac
+        ;;
+esac
+RPROMPT="[%~]"
+
