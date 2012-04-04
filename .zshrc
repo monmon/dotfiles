@@ -1,8 +1,17 @@
 export LANG=ja_JP.UTF-8
 
 # alias
-alias ls='ls -G -w'
-alias ll='ls -lrtF'
+case "${OSTYPE}" in
+    darwin*)
+        alias ls='ls -G -w'
+        alias ll='ls -lrtF'
+        ;;
+    linux*)
+        alias ls='ls --color'
+        alias ll='ls -lrtF'
+        ;;
+esac
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -38,10 +47,16 @@ export PATH=/usr/local/bin:$PATH
 function chpwd() { ll }
 
 # perlbrew
-source ~/perl5/perlbrew/etc/bashrc
+PERL5_BASHRC="~/perl5/perlbrew/etc/bashrc"
+if [ -e $PERL5_BASHRC ]; then 
+    source $PERL5_BASHRC
+fi
 
 # pythonbrew
-source /Users/no-kumagai/.pythonbrew/etc/bashrc
+PYTHONBREW_BASHRC="~/.pythonbrew/etc/bashrc"
+if [ -e $PYTHONBREW_BASHRC ]; then 
+    source $PYTHONBREW_BASHRC
+fi
 
 # php
 export PATH=/usr/local/Cellar/php/5.3.6/bin:$PATH
