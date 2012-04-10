@@ -1,0 +1,10 @@
+[user]
+    name = monmon
+    email = lesamoureuses@gmail.com
+[alias]
+    st = status
+    hist = log --pretty=format:\"%h %ai | %s%d [%an]\" --graph --date=short
+[core]
+    excludesfile = ~/.gitignore_global
+[color]
+    ui = auto
