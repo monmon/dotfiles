@@ -44,13 +44,13 @@ export PATH=/usr/local/bin:$PATH
 function chpwd() { ll }
 
 # perlbrew
-PERL5_BASHRC="~/perl5/perlbrew/etc/bashrc"
+PERL5_BASHRC="$HOME/perl5/perlbrew/etc/bashrc"
 if [ -e $PERL5_BASHRC ]; then 
     source $PERL5_BASHRC
 fi
 
 # pythonbrew
-PYTHONBREW_BASHRC="~/.pythonbrew/etc/bashrc"
+PYTHONBREW_BASHRC="$HOME/.pythonbrew/etc/bashrc"
 if [ -e $PYTHONBREW_BASHRC ]; then 
     source $PYTHONBREW_BASHRC
 fi
