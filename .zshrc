@@ -86,5 +86,9 @@ case "${OSTYPE}" in
 esac
 RPROMPT="[%~]"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# rbenv
+RBENV_HOME="$HOME/.rbenv"
+if [ -e $RBENV_HOME ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
