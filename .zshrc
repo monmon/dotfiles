@@ -92,3 +92,14 @@ if [ -e $RBENV_HOME ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+
+# pear
+PEAR_HOME="$HOME/pear"
+if [ -e $PEAR_HOME ]; then
+    export PATH="$PEAR_HOME/bin:$PATH"
+fi
+# phpbrew
+PHPBREW_HOME="$HOME/.phpbrew"
+if [ -e $PHPBREW_HOME ]; then
+    source $PHPBREW_HOME/bashrc
+fi
