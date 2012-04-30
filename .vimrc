@@ -52,6 +52,57 @@ syntax on
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
 
 
+
+" ====================================================
+" vundle settings
+" ====================================================
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'vcscommand.vim'
+Bundle 'octave.vim'
+Bundle 'QuickBuf'
+Bundle 'scratch'
+"Bundle 'skk.vim-B'
+Bundle 'sudo.vim'
+Bundle 'The-NERD-tree'
+Bundle 'neocomplcache'
+Bundle 'Javascript-syntax-with-Ajax-Support'
+Bundle 'Simple-Javascript-Indenter'
+
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+
+ " Brief help
+ " :BundleList          - list configured bundles
+ " :BundleInstall(!)    - install(update) bundles
+ " :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Bundle command are not allowed..
+
+" ==========================================================
+
+filetype indent on
+filetype plugin indent on
+filetype plugin on
+
 "======================= Key Mappings ======================
 nnoremap <Space>w :<C-u>update<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
@@ -80,3 +131,6 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+
+" NERD_tree
+map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
