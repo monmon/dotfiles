@@ -8,3 +8,10 @@
     excludesfile = ~/.gitignore_global
 [color]
     ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
