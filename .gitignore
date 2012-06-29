@@ -1,1 +1,11 @@
+#general
+
+.DS_Store
+.hg/
+.svn/
+.gitignore/
+build/
+xcuserdata/
+*.swp
 .vim/bundle
+.netrwhist
