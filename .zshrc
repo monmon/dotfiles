@@ -1,6 +1,6 @@
 export LANG=ja_JP.UTF-8
 
-# alias
+### alias
 case "${OSTYPE}" in
     darwin*)
         alias ls='ls -G -w'
@@ -12,9 +12,11 @@ case "${OSTYPE}" in
         ;;
 esac
 
+# standard
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias t='tmux'      # tmux
 
 
 # historical backward/forward search with linehead string binded to ^P/^N
