@@ -8,7 +8,7 @@
     st = status
     hist = log --pretty=format:\"%h %ai | %s%d [%an]\" --graph --date=short
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore
 [color]
     ui = auto
     branch = auto
