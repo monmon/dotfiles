@@ -2,6 +2,9 @@
     name = monmon
     email = lesamoureuses@gmail.com
 [alias]
+    co = checkout
+    br = branch
+    ci = commit
     st = status
     hist = log --pretty=format:\"%h %ai | %s%d [%an]\" --graph --date=short
 [core]
