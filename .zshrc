@@ -40,7 +40,7 @@ setopt share_history        # share command history data
 
 
 # path
-export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/local/bin:/usr/local/bin:$PATH
 
 # ls after cd
 function chpwd() { ll }
@@ -100,6 +100,7 @@ PEAR_HOME="$HOME/pear"
 if [ -e $PEAR_HOME ]; then
     export PATH="$PEAR_HOME/bin:$PATH"
 fi
+
 # phpbrew
 PHPBREW_HOME="$HOME/.phpbrew"
 if [ -e $PHPBREW_HOME ]; then
