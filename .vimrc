@@ -6,7 +6,7 @@ set nocompatible
 
 " エンコーディング設定
 set encoding=utf-8
-" set fileencodings=iso-2022-jp,euc-jp,cp932,utf-8 " isoから順に試す
+set fileencodings=utf-8,euc-jp,cp932,iso-2022-jp " isoから順に試す
 set ambiwidth=double                             " 全角矢印などの表示幅を全角に
 
 " 検索機能の設定
