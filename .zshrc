@@ -40,7 +40,7 @@ setopt share_history        # share command history data
 
 
 # path
-export $HOME/local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:$PATH
 if [ -e "$HOME/local32/bin" ]; then
     export PATH=$HOME/local32/bin:$PATH
 fi
