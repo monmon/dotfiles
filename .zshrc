@@ -40,7 +40,15 @@ setopt share_history        # share command history data
 
 
 # path
-export PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:$PATH
+export $HOME/local/bin:$HOME/bin:/usr/local/bin:$PATH
+if [ -e "$HOME/local32/bin" ]; then
+    export PATH=$HOME/local32/bin:$PATH
+fi
+if [ `uname -m | perl -nle 'm/_64$/ and print 1'` ]; then
+    if [ -e "$HOME/local64/bin" ]; then
+        export PATH=$HOME/local64/bin:$PATH
+    fi
+fi
 
 # ls after cd
 function chpwd() { ll }
