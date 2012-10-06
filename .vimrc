@@ -44,6 +44,8 @@ set history=1000
 
 set nrformats=octal,hex,alpha " ctrl-a,ctrl-xでalpha,8,16を認識
 
+set swapfile
+set directory=~/
 set updatecount=50            " 50文字でswapファイル作成
 
 syntax on
