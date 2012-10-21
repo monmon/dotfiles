@@ -89,7 +89,7 @@ case "${OSTYPE}" in
                 PROMPT="%1(v|%F{green}%1v%f|)[%T@%F{white}%m%f]%% "
                 ;;
             *)
-                PROMPT="%1(v|%F{green}%1v%f|)[%T@%F{red}%m%f]%% "
+                PROMPT="%1(v|%F{green}%1v%f|)%F{red}[%T@%m]%%%f "
                 ;;
         esac
         ;;
