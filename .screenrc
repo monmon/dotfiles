@@ -28,7 +28,7 @@ altscreen on
 backtick 1 5 5 hostname
 
 # Set the caption on the bottom line
-caption always "%{= wg} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%Y/%m/%d %{=b wm}%c"
+caption always "%{wk} %{-}%{wk}%-w %{+b wk}[%n %t]%{-} %+w%=%{wk} (%{gk}%H%{-}%{wk}) : %Y/%m/%d %c:%s %{-}"
 
 # window番号は1から
 screen 1
