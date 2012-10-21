@@ -130,3 +130,13 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
         screen -rx || screen -D -RR
     fi
 fi
+
+case "$TERM" in
+screen)
+    preexec() {
+        echo -ne "\ek#${1%% *}\e\\"
+    }
+    precmd() {
+        echo -ne "\ek$(basename $(pwd))\e\\"
+    }
+esac
