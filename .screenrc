@@ -32,6 +32,7 @@ caption always "%{wk} %{-}%{wk}%-w %{+b wk}[%n %t]%{-} %+w%=%{wk} (%{gk}%H%{-}%{
 
 # window番号は1から
 screen 1
+bind c                          # unbind
 bind w eval 'screen 1'
 bind s eval 'split' 'focus' 'screen 1'
 
