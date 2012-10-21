@@ -12,7 +12,8 @@ defflow off
 startup_message off
 
 # reload
-bind r source $HOME/.screenrc
+bind r
+bind r source "$HOME/.screenrc"
 
 # use regular audible bell
 vbell off
