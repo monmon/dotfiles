@@ -36,6 +36,10 @@ bind c                          # unbind
 bind w eval 'screen 1'
 bind s eval 'split' 'focus' 'screen 1'
 
+# 番号を付け直す
+bind .
+bind . colon 'number '
+
 #bind " windowlist -b
 
 # copy
