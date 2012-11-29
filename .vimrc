@@ -86,6 +86,7 @@ Bundle 'The-NERD-tree'
 Bundle 'neocomplcache'
 Bundle 'Javascript-syntax-with-Ajax-Support'
 Bundle 'Simple-Javascript-Indenter'
+Bundle 'thinca/vim-quickrun'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -136,3 +137,7 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 
 " NERD_tree
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+" quickrun
+nmap <Leader>r <plug>(quickrun)
+set splitright "新しいウィンドウを右に開く
