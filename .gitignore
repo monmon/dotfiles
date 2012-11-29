@@ -10,3 +10,4 @@ xcuserdata/
 *.swp
 .vim/bundle
 .netrwhist
+!.empty
