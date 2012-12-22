@@ -11,3 +11,4 @@ xcuserdata/
 .vim/bundle
 .netrwhist
 !.empty
+!.zsh*
