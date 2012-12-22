@@ -40,7 +40,7 @@ setopt share_history        # share command history data
 
 
 # path
-export PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 if [ -e "$HOME/local32/bin" ]; then
     export PATH=$HOME/local32/bin:$PATH
 fi
@@ -119,8 +119,9 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
 #        else
 #            tmux new-session && echo "tmux created new session"
 #        fi
-#    elif type screen >/dev/null 2>&1; then
-    if type screen >/dev/null 2>&1; then
+    if [ -z "$SSH_CONNECTION" ]; then
+        :;
+    elif type screen >/dev/null 2>&1; then
         screen -rx || screen -D -RR
     fi
 fi
