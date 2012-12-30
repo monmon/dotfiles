@@ -25,7 +25,6 @@ set expandtab     " タブの代わりに空白
 " 行番号などの表示回り
 set number
 set noruler        " カーソルが何行目何列目に置かれているかを表示しない
-set nolist
 set showmatch      " とじ括弧入力時に対応する括弧を表示
 set wrap
 set title
@@ -47,6 +46,10 @@ set nrformats=octal,hex,alpha " ctrl-a,ctrl-xでalpha,8,16を認識
 set swapfile
 set directory=~/
 set updatecount=50            " 50文字でswapファイル作成
+
+" http://d.hatena.ne.jp/potappo2/20061107/1162862536
+set list
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
 syntax on
 
