@@ -49,7 +49,7 @@ set updatecount=50            " 50文字でswapファイル作成
 
 " http://d.hatena.ne.jp/potappo2/20061107/1162862536
 set list
-set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+set listchars=tab:>_,trail:_,nbsp:%,extends:>,precedes:<
 
 syntax on
 
