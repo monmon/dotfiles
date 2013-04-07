@@ -35,6 +35,19 @@ SAVEHIST=100000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
+zshaddhistory(){
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+
+    [[ ${#line} -ge 5
+        && ${cmd} != (l|l[sal])
+        && ${cmd} != (cd)
+        && ${cmd} != (man)
+        && ${cmd} != (rm)
+        && ${cmd} != (fg)
+    ]]
+}
+
 # ls after cd
 function chpwd() { ll }
 
