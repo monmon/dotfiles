@@ -10,9 +10,11 @@
     unstage = reset HEAD --
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
     ll = log --stat --abbrev-commit
+    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
+    pager = "nkf -w | LESSCHARSET=utf-8 less" 
 [color]
     ui = auto
     branch = auto
