@@ -67,7 +67,8 @@ precmd(){
 case "${OSTYPE}" in
     darwin*)
         #PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
-        PROMPT="%1(v|%F{green}%1v%f|)[%T]%% "
+        PROMPT=$'\n'"[%T] %3F%~%f"$'\n'"%1(v|%F{green}%1v%f|)%% "
+        RPROMPT=
         ;;
     linux*)
         case "${HOSTNAME}" in
@@ -78,9 +79,9 @@ case "${OSTYPE}" in
                 PROMPT="%1(v|%F{green}%1v%f|)%F{red}[%T@%m]%%%f "
                 ;;
         esac
+        RPROMPT="[%~]"
         ;;
 esac
-RPROMPT="[%~]"
 
 # tmux + screen
 if [ -z "$TMUX" -a -z "$STY" ]; then
