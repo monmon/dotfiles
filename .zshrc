@@ -74,12 +74,14 @@ case "${OSTYPE}" in
         case "${HOSTNAME}" in
             *dev*)
                 PROMPT="%1(v|%F{green}%1v%f|)[%T@%F{white}%m%f]%% "
+                PROMPT=$'\n'"[%T@%F{white}%m%f] %3F%~%f"$'\n'"%1(v|%F{green}%1v%f|)%% "
                 ;;
             *)
                 PROMPT="%1(v|%F{green}%1v%f|)%F{red}[%T@%m]%%%f "
+                PROMPT=$'\n'"%F{red}[%T@%m]%f %3F%~%f"$'\n'"%1(v|%F{green}%1v%f|)%% "
                 ;;
         esac
-        RPROMPT="[%~]"
+        RPROMPT=
         ;;
 esac
 
