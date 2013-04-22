@@ -11,6 +11,7 @@
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
     ll = log --stat --abbrev-commit
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
