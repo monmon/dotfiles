@@ -111,3 +111,4 @@ screen)
         echo -ne "\ek$(basename $(pwd))\e\\"
     }
 esac
+fpath=(/usr/local/share/zsh-completions $fpath)
