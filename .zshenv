@@ -43,3 +43,5 @@ PHPBREW_HOME="$HOME/.phpbrew"
 if [ -e $PHPBREW_HOME ]; then
     source $PHPBREW_HOME/bashrc
 fi
+export PATH="$HOME/.plenv/bin:$PATH"
+PATH=~/.plenv/shims:$PATH
