@@ -1,6 +1,8 @@
 " mapleaderは,に
 let mapleader = ','
 
+colorscheme koehler
+
 " viとの互換性をOFF
 set nocompatible
 
