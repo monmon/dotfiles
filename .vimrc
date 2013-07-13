@@ -46,7 +46,7 @@ set history=1000
 set nrformats=octal,hex,alpha " ctrl-a,ctrl-xでalpha,8,16を認識
 
 set swapfile
-set directory=~/
+set directory=~/.vimtmp
 set updatecount=50            " 50文字でswapファイル作成
 
 " http://d.hatena.ne.jp/potappo2/20061107/1162862536
