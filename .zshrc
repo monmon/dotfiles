@@ -33,7 +33,20 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=100000
 setopt hist_ignore_dups     # ignore duplication command history list
+setopt hist_ignore_space    # スペースで始まるコマンド行はヒストリリストから削除
+setopt hist_verify          # ヒストリを呼び出してから実行する間に一旦編集可能
+setopt hist_reduce_blanks   # 余分な空白は詰めて記録
+setopt hist_no_store        # historyコマンドは履歴に登録しない
+setopt hist_expand          # 補完時にヒストリを自動的に展開d
+setopt inc_append_history   # 履歴をインクリメンタルに追加
 setopt share_history        # share command history data
+setopt EXTENDED_HISTORY
+
+# インクリメンタルからの検索
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
+
+function history-all { history -E 1 }
 
 zshaddhistory(){
     local line=${1%%$'\n'}
