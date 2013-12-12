@@ -48,3 +48,5 @@ if [ -e $PHPBREW_HOME ]; then
 fi
 export PATH="$HOME/.plenv/bin:$PATH"
 PATH=~/.plenv/shims:$PATH
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
