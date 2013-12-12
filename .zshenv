@@ -1,3 +1,6 @@
+# http://blog.n-z.jp/blog/2013-12-12-zsh-cleanup-path.html
+typeset -U path PATH
+
 # path
 export PATH=$HOME/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 if [ -e "$HOME/local32/bin" ]; then
