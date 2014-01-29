@@ -198,3 +198,10 @@ map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 " quickrun
 nmap <Leader>r <plug>(quickrun)
 set splitright "新しいウィンドウを右に開く
+
+"=== perl
+iab pdump   use Data::Dump 'dump'; warn dump 
+iab pyamp   use YAML; warn Dump 
+iab pdumper use Data::Dumper; $Data::Dumper::Sortkeys=$Data::Dumper::Indent=$Data::Dumper::Terse=$Data::Dumper::Deparse=1;<CR>warn Dumper [ ];<Left><Left><Left>
+iab pdie    use Data::Dumper; die Dumper 
+iab phdump  $___dump = function(){ error_log(print_r(func_get_args(), true)); }; $___dump();<C-O>h 
