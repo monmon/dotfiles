@@ -20,3 +20,8 @@ fi
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+# http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
+for D in `find $HOME/.anyenv/envs -type d -d 1`
+do
+    export PATH="$D/shims:$PATH"
+done
