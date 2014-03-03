@@ -49,9 +49,13 @@ set swapfile
 set directory=~/.vimtmp
 set updatecount=50            " 50文字でswapファイル作成
 
-" http://d.hatena.ne.jp/potappo2/20061107/1162862536
-set list
-set listchars=tab:>_,trail:_,nbsp:%,extends:>,precedes:<
+" http://vim-users.jp/2009/07/hack40/
+scriptencoding utf-8
+augroup highlightDoubleByteSpace
+  autocmd!
+  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=red guibg=red
+  autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /^\t\+\|　\|\s\+$/
+augroup END
 
 syntax on
 
