@@ -73,14 +73,16 @@ autoload -U compinit
 compinit
 
 ## for git
-# 
+#
 # VCS settings
 autoload -Uz vcs_info
-precmd(){
+autoload -Uz add-zsh-hook
+_precmd_1(){
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
 }
+add-zsh-hook precmd _precmd_1
 case "${OSTYPE}" in
     darwin*)
         #PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
@@ -124,9 +126,10 @@ screen)
     preexec() {
         echo -ne "\ek#${1%% *}\e\\"
     }
-    precmd() {
+    _precmd_2() {
         echo -ne "\ek$(basename $(pwd))\e\\"
     }
+    add-zsh-hook precmd _precmd_2
 esac
 fpath=(/usr/local/share/zsh-completions $fpath)
 
