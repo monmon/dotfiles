@@ -27,3 +27,7 @@
     remote = cyan
 [diff]
 	noprefix = true
+[pager]
+    log = diff-highlight | nkf -w | less
+    show = diff-highlight | nkf -w | less
+    diff = diff-highlight | nkf -w | less
