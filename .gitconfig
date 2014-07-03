@@ -15,7 +15,7 @@
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
-    pager = "nkf -w | LESSCHARSET=utf-8 less" 
+    pager = "nkf -w | LESSCHARSET=utf-8 LESS=-R less"
 [color]
     ui = auto
     branch = auto
@@ -28,6 +28,6 @@
 [diff]
 	noprefix = true
 [pager]
-    log = diff-highlight | nkf -w | less
-    show = diff-highlight | nkf -w | less
-    diff = diff-highlight | nkf -w | less
+    log = diff-highlight | nkf -w | LESS=-R less
+    show = diff-highlight | nkf -w | LESS=-R less
+    diff = diff-highlight | nkf -w | LESS=-R less
