@@ -8,6 +8,7 @@
 build/
 xcuserdata/
 *.swp
+!.vim/
 .vim/bundle
 .netrwhist
 !.empty

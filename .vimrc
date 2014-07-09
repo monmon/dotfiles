@@ -75,30 +75,32 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
+set runtimepath+=~/.vim/
+runtime! conf.d/*.vim
+
 " My Bundles here:
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
+
+
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'vcscommand.vim'
-Bundle 'octave.vim'
-Bundle 'QuickBuf'
-Bundle 'scratch'
-"Bundle 'skk.vim-B'
-Bundle 'sudo.vim'
-Bundle 'The-NERD-tree'
-Bundle 'neocomplcache'
-Bundle 'Javascript-syntax-with-Ajax-Support'
-Bundle 'Simple-Javascript-Indenter'
-Bundle 'thinca/vim-quickrun'
+"Bundle 'vcscommand.vim'
+"Bundle 'octave.vim'
+"Bundle 'QuickBuf'
+"Bundle 'scratch'
+""Bundle 'skk.vim-B'
+"Bundle 'sudo.vim'
+"Bundle 'neocomplcache'
+"Bundle 'Javascript-syntax-with-Ajax-Support'
+"Bundle 'Simple-Javascript-Indenter'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 
  " Brief help
  " :BundleList          - list configured bundles
@@ -115,57 +117,6 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
-" ===================  perl  ===============================
-" http://perl-users.jp/articles/advent-calendar/2012/casual/13
-augroup filetypedetect
-    autocmd! BufNewFile,BufRead *.t setf perl
-    autocmd! BufNewFile,BufRead *.psgi setf perl
-    autocmd! BufNewFile,BufRead *.tt setf tt2html
-augroup END
-
-autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl-script.txt
-autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
-
-function! s:pm_template()
-    let path = substitute(expand('%'), '.*lib/', '', 'g')
-    let path = substitute(path, '[\\/]', '::', 'g')
-    let path = substitute(path, '\.pm$', '', 'g')
-
-    call append(0, 'package ' . path . ';')
-    call append(1, 'use strict;')
-    call append(2, 'use warnings;')
-    call append(3, 'use utf8;')
-    call append(4, '')
-    call append(5, '')
-    call append(6, '')
-    call append(7, '1;')
-    call cursor(6, 0)
-    " echomsg path
-endfunction
-autocmd BufNewFile *.pm call s:pm_template()
-
-function! s:get_package_name()
-    let mx = '^\s*package\s\+\([^ ;]\+\)'
-    for line in getline(1, 5)
-        if line =~ mx
-        return substitute(matchstr(line, mx), mx, '\1', '')
-        endif
-    endfor
-    return ""
-endfunction
-
-function! s:check_package_name()
-    let path = substitute(expand('%:p'), '\\', '/', 'g')
-    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
-    if path[-len(name):] != name
-        echohl WarningMsg
-        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします！"
-        echomsg "ちゃんとなおしてください＞＜"
-        echohl None
-    endif
-endfunction
-
-au! BufWritePost *.pm call s:check_package_name()
 
 "======================= Key Mappings ======================
 nnoremap <Space>w :<C-u>update<CR>
@@ -195,17 +146,3 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
-
-" NERD_tree
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-" quickrun
-nmap <Leader>r <plug>(quickrun)
-set splitright "新しいウィンドウを右に開く
-
-"=== perl
-iab pdump   use Data::Dump 'dump'; warn dump 
-iab pyamp   use YAML; warn Dump 
-iab pdumper use Data::Dumper; $Data::Dumper::Sortkeys=$Data::Dumper::Indent=$Data::Dumper::Terse=$Data::Dumper::Deparse=1;<CR>warn Dumper [ ];<Left><Left><Left>
-iab pdie    use Data::Dumper; die Dumper 
-iab phdump  $___dump = function(){ error_log(print_r(func_get_args(), true)); }; $___dump();<C-O>h 
