@@ -67,49 +67,60 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal 
 " ====================================================
 " vundle settings
 " ====================================================
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 set runtimepath+=~/.vim/
 runtime! conf.d/*.vim
 
-" My Bundles here:
+" My Plugins here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
+Plugin 'Lokaltog/vim-easymotion'
 
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'thinca/vim-quickrun'
+
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-"Bundle 'vcscommand.vim'
-"Bundle 'octave.vim'
-"Bundle 'QuickBuf'
-"Bundle 'scratch'
-""Bundle 'skk.vim-B'
-"Bundle 'sudo.vim'
-"Bundle 'neocomplcache'
-"Bundle 'Javascript-syntax-with-Ajax-Support'
-"Bundle 'Simple-Javascript-Indenter'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'The-NERD-tree'
+
+Plugin 'tyru/open-browser.vim'
+Plugin 'superbrothers/vim-quickrun-markdown-gfm'
+
+"Plugin 'vcscommand.vim'
+"Plugin 'octave.vim'
+"Plugin 'QuickBuf'
+"Plugin 'scratch'
+""Plugin 'skk.vim-B'
+"Plugin 'sudo.vim'
+"Plugin 'neocomplcache'
+"Plugin 'Javascript-syntax-with-Ajax-Support'
+"Plugin 'Simple-Javascript-Indenter'
 
 " non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 
  " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ " :PluginList          - list configured bundles
+ " :PluginInstall(!)    - install(update) bundles
+ " :PluginSearch(!) foo - search(or refresh cache first) for foo
+ " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
  "
  " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+ " NOTE: comments after Plugin command are not allowed..
+
+ call vundle#end()            " required
+ filetype plugin indent on    " required
 
 " ==========================================================
 
