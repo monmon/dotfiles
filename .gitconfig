@@ -31,3 +31,6 @@
     log = diff-highlight | nkf -w | LESS=-R less
     show = diff-highlight | nkf -w | LESS=-R less
     diff = diff-highlight | nkf -w | LESS=-R less
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
