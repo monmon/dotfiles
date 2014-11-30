@@ -10,6 +10,7 @@ xcuserdata/
 *.swp
 !.vim/
 .vim/bundle
+!.vim/bundle/Vundle.vim
 .netrwhist
 !.empty
 !.zsh*

@@ -1,7 +1,5 @@
 " http://haya14busa.com/mastering-vim-easymotion/
 
-Bundle 'Lokaltog/vim-easymotion'
-
 " =======================================
 " Boost your productivity with EasyMotion
 " =======================================
