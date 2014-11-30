@@ -1,10 +1,9 @@
+scriptencoding utf-8
+
 " mapleaderは,に
-let mapleader = ','
+let g:mapleader = ','
 
 colorscheme koehler
-
-" viとの互換性をOFF
-set nocompatible
 
 " エンコーディング設定
 set encoding=utf-8
@@ -50,7 +49,6 @@ set directory=~/.vimtmp
 set updatecount=50            " 50文字でswapファイル作成
 
 " http://vim-users.jp/2009/07/hack40/
-scriptencoding utf-8
 augroup highlightDoubleByteSpace
   autocmd!
   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=red guibg=red
