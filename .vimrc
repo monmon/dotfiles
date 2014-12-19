@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 
 " mapleaderは,に
@@ -6,7 +7,6 @@ let g:mapleader = ','
 colorscheme koehler
 
 " エンコーディング設定
-set encoding=utf-8
 set fileencodings=utf-8,euc-jp,cp932,iso-2022-jp " isoから順に試す
 set ambiwidth=double                             " 全角矢印などの表示幅を全角に
 
@@ -58,16 +58,17 @@ augroup END
 syntax on
 
 " 開いた時に前回閉じた時の行にカーソルを合わせる
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
+augroup autoCommands
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute("normal! `\"") | endif
+augroup END
 
 
 
 " ====================================================
 " vundle settings
 " ====================================================
-set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
