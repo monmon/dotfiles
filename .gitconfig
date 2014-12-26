@@ -10,6 +10,8 @@
     unstage = reset HEAD --
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
     ll = log --stat --abbrev-commit
+    oneline = log --graph --all --oneline --decorate
+    graph = log --graph --all --decorate --pretty=format:'%C(yellow)%h %Cgreen%d %Cred%ad %Cblue%an %Creset%s' --date=short
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
     cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [core]
@@ -34,3 +36,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[ghq]
+	root = /Users/no-kumagai/src
