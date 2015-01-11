@@ -75,6 +75,17 @@ export LANG=ja_JP.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+case "${OSTYPE}" in
+    darwin*)
+        alias ls='ls -G -w'
+        alias ll='ls -lrtF'
+        ;;
+    linux*)
+        alias ls='ls --color'
+        alias ll='ls -lrtF'
+        ;;
+esac
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ssh=~/bin/ssh-host-color
