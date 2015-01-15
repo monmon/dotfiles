@@ -50,7 +50,14 @@ plugins=(aws gem git git-remote-branch github heroku ruby node npm perl ssh-agen
 
 # User configuration
 
-export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/dotfiles/bin:$HOME/.anyenv/bin::/usr/local/bin:$PATH
+eval "$(anyenv init -)"
+# http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
+for D in `find $HOME/.anyenv/envs -type d -d 1`
+do
+    export PATH="$D/shims:$PATH"
+done
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
