@@ -50,6 +50,8 @@ plugins=(aws gem git git-remote-branch github heroku ruby node npm perl ssh-agen
 
 # User configuration
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=$HOME/bin:$HOME/dotfiles/bin:$HOME/.anyenv/bin::/usr/local/bin:$PATH
 eval "$(anyenv init -)"
 # http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
