@@ -96,6 +96,8 @@ Plugin 'The-NERD-tree'
 Plugin 'tyru/open-browser.vim'
 Plugin 'superbrothers/vim-quickrun-markdown-gfm'
 
+Plugin 'fatih/vim-go'
+
 "Plugin 'vcscommand.vim'
 "Plugin 'octave.vim'
 "Plugin 'QuickBuf'
