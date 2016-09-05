@@ -1,6 +1,6 @@
 #general
 
-.*
+!.*
 .DS_Store
 .hg/
 .svn/
@@ -14,3 +14,4 @@ xcuserdata/
 .netrwhist
 !.empty
 !.zsh*
+.node-version

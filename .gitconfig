@@ -12,12 +12,13 @@
     ll = log --stat --abbrev-commit
     oneline = log --graph --all --oneline --decorate
     graph = log --graph --all --decorate --pretty=format:'%C(yellow)%h %Cgreen%d %Cred%ad %Cblue%an %Creset%s' --date=short
-    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    delete-merged-branches = !git branch --merged | grep -v \\* | grep -v master | xargs -I % git branch -d %
     cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
     pager = "nkf -w | LESSCHARSET=utf-8 LESS=-R less"
+	editor = vim -c \"set fenc=utf-8\"
 [color]
     ui = auto
     branch = auto
@@ -37,4 +38,8 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [ghq]
-	root = /Users/no-kumagai/src
+	root = ~/src
+[fetch]
+	prune = true
+[commit]
+	template = ~/.gitmessage.txt
