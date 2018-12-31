@@ -43,3 +43,5 @@
 	prune = true
 [commit]
 	template = ~/.gitmessage.txt
+[push]
+	default = current
