@@ -1,0 +1,1 @@
+autocmd filetype javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab

@@ -98,6 +98,17 @@ Plugin 'superbrothers/vim-quickrun-markdown-gfm'
 
 Plugin 'fatih/vim-go'
 
+Plugin 'leafgarland/typescript-vim'
+
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'jason0x43/vim-js-indent'
+let g:js_indent_typescript = 1
+
+Plugin 'itchyny/lightline.vim'
+Plugin 'chase/vim-ansible-yaml'
+
+
 "Plugin 'vcscommand.vim'
 "Plugin 'octave.vim'
 "Plugin 'QuickBuf'
@@ -119,6 +130,12 @@ Plugin 'fatih/vim-go'
  "
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Plugin command are not allowed..
+ "
+
+ Plugin 'hashivim/vim-terraform'
+ let g:terraform_fmt_on_save = 1
+
+ Plugin 'juliosueiras/vim-terraform-completion'
 
  call vundle#end()            " required
  filetype plugin indent on    " required
