@@ -1,54 +1,82 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# https://qiita.com/sayama0402/items/adc1980b83d16c9a9bb0
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# http://qiita.com/takc923/items/c479e38112b913b7614a
-ZSH_THEME="takc923-kai"
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+autoload -U promptinit; promptinit
+# プロンプトを変更
+prompt pure
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+setopt auto_cd
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zsh-syntax-highlighting'
+zplug "mollifier/anyframe"
+zplug "mollifier/cd-gitroot"
+# zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3"
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug "supercrabtree/k"
+zplug "junegunn/fzf", use:shell/key-bindings.zsh
+zplug "junegunn/fzf", use:shell/completion.zsh
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "paulirish/git-open", as:plugin
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+: "cd先のディレクトリのファイル一覧を表示する" && {
+  [ -z "$ENHANCD_ROOT" ] && function chpwd { tree -L 1 } # enhancdがない場合
+  [ -z "$ENHANCD_ROOT" ] || export ENHANCD_HOOK_AFTER_CD="tree -L 1" # enhancdがあるときはそのHook機構を使う
+}
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+: "sshコマンド補完を~/.ssh/configから行う" && {
+  function _ssh { compadd $(fgrep 'Host ' ~/.ssh/*/config | grep -v '*' |  awk '{print $2}' | sort) }
+}
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# 未インストール項目をインストールする
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# コマンドをリンクして、PATH に追加し、プラグインは読み込む
+zplug load --verbose
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(aws gem git git-remote-branch github heroku ruby node npm perl ssh-agent tmuxinator)
 
 # User configuration
+
+## Command history configuration
+#
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=100000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt hist_ignore_space    # スペースで始まるコマンド行はヒストリリストから削除
+setopt hist_verify          # ヒストリを呼び出してから実行する間に一旦編集可能
+setopt hist_reduce_blanks   # 余分な空白は詰めて記録
+setopt hist_no_store        # historyコマンドは履歴に登録しない
+setopt hist_expand          # 補完時にヒストリを自動的に展開d
+setopt inc_append_history   # 履歴をインクリメンタルに追加
+setopt share_history        # share command history data
+setopt EXTENDED_HISTORY
+
+function history-all { history -E 1 }
+
+zshaddhistory(){
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+
+    [[ ${#line} -ge 5
+        && ${cmd} != (l|l[sal])
+        && ${cmd} != (cd)
+        && ${cmd} != (man)
+        && ${cmd} != (rm)
+        && ${cmd} != (fg)
+    ]]
+}
+
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -61,8 +89,6 @@ do
 done
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=ja_JP.UTF-8
