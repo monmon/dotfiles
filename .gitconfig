@@ -3,7 +3,7 @@
     email = lesamoureuses@gmail.com
 [alias]
     co = checkout
-    br = branch
+    br = branch --sort=authordate -v
     ci = commit
     st = status
     hist = log --pretty=format:\"%h %ai | %s%d [%an]\" --graph --date=short
@@ -38,7 +38,7 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [ghq]
-	root = ~/src
+	root = ~/ghq
 [fetch]
 	prune = true
 [commit]
