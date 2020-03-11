@@ -92,3 +92,16 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias ssh=~/bin/ssh-host-color
+
+# https://github.com/Songmu/ghq-handbook/blob/master/ja/05-ghq-list.md
+peco-src () {
+    local repo=$(ghq list | peco --query "$LBUFFER")
+    if [ -n "$repo" ]; then
+        repo=$(ghq list --full-path --exact $repo)
+        BUFFER="cd ${repo}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
