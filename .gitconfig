@@ -14,6 +14,8 @@
     graph = log --graph --all --decorate --pretty=format:'%C(yellow)%h %Cgreen%d %Cred%ad %Cblue%an %Creset%s' --date=short
     delete-merged-branches = !git branch --merged | grep -v \\* | grep -v master | xargs -I % git branch -d %
     cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+    ch = !git switch $(git branch --sort=-authordate | peco)
+	push-f = push --force-with-lease
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
